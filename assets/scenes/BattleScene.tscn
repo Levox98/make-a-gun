@@ -7,27 +7,27 @@
 
 [node name="BattleScene" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="BattleUI" type="CanvasLayer" parent="."]
 script = ExtResource("4_argb5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerHealth" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="PlayerHealth" type="Label" parent="BattleUI/VBoxContainer"]
 layout_mode = 2
 
-[node name="EnemyHealth" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="EnemyHealth" type="Label" parent="BattleUI/VBoxContainer"]
 layout_mode = 2
 
-[node name="AttackButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="AttackButton" type="Button" parent="BattleUI/VBoxContainer"]
 layout_mode = 2
 
 [node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "ui")]
 script = ExtResource("1_qnk7v")
 player = NodePath("../Player")
 enemy = NodePath("../Enemy")
-ui = NodePath("../CanvasLayer")
+ui = NodePath("../BattleUI")
 
 [node name="Enemy" type="Node" parent="."]
 script = ExtResource("1_4mw4u")

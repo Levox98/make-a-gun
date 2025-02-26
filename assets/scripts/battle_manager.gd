@@ -27,7 +27,7 @@ func next_turn() -> void:
 	print("Current turn: " + turn_order[current_turn])
 
 	if turn_order[current_turn] == "player":
-		player_turn()
+		player_turn() # TODO: this should only allow the player to make the turn, not make it for them
 	else:
 		enemy_turn()
 

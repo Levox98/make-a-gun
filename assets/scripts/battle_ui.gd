@@ -12,6 +12,8 @@ var battle_manager: BattleManager
 
 
 func _ready() -> void:
+	# TODO: replace this shitty code, because it depends on placement order of the nodes in scene tree
+	# if you put battle ui below 'battle manager' this crashes
 	battle_manager = get_parent().get_node("BattleManager")
 	player = battle_manager.player
 	enemy = battle_manager.enemy
