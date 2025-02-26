@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://pxb6wju33k4j"]
+
+[ext_resource type="Script" path="res://assets/scripts/enemy.gd" id="1_4mw4u"]
+[ext_resource type="Script" path="res://assets/scripts/battle_manager.gd" id="1_qnk7v"]
+[ext_resource type="Script" path="res://assets/scripts/player.gd" id="2_xpv88"]
+[ext_resource type="Script" path="res://assets/scripts/battle_ui.gd" id="4_argb5"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_argb5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealth" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnemyHealth" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AttackButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "ui")]
+script = ExtResource("1_qnk7v")
+player = NodePath("../Player")
+enemy = NodePath("../Enemy")
+ui = NodePath("../CanvasLayer")
+
+[node name="Enemy" type="Node" parent="."]
+script = ExtResource("1_4mw4u")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("2_xpv88")
