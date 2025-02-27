@@ -32,11 +32,15 @@ func next_turn() -> void:
 		enemy_turn()
 
 
-func player_turn() -> void:
-	print("Player's turn, waiting for input")
+func player_attack() -> void:
 	player.attack(enemy)
 	ui.update_ui()
 	next_turn()
+
+
+func player_turn() -> void:
+	print("Player's turn, waiting for input")
+	player.can_attack = true
 
 
 func enemy_turn() -> void:

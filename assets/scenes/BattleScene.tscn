@@ -1,27 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://pxb6wju33k4j"]
+[gd_scene load_steps=8 format=3 uid="uid://pxb6wju33k4j"]
 
 [ext_resource type="Script" path="res://assets/scripts/enemy.gd" id="1_4mw4u"]
 [ext_resource type="Script" path="res://assets/scripts/battle_manager.gd" id="1_qnk7v"]
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="2_xpv88"]
 [ext_resource type="Script" path="res://assets/scripts/battle_ui.gd" id="4_argb5"]
+[ext_resource type="Script" path="res://assets/scripts/weapon.gd" id="5_udmq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g66lf"]
+content_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1me2"]
+content_margin_bottom = 50.0
 
 [node name="BattleScene" type="Node2D"]
 
 [node name="BattleUI" type="CanvasLayer" parent="."]
 script = ExtResource("4_argb5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="BattleUI"]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
 
-[node name="PlayerHealth" type="Label" parent="BattleUI/VBoxContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EnemyHealth" type="Label" parent="BattleUI/VBoxContainer"]
+[node name="PlayerHealth" type="Label" parent="BattleUI/Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g66lf")
 
-[node name="AttackButton" type="Button" parent="BattleUI/VBoxContainer"]
+[node name="EnemyHealth" type="Label" parent="BattleUI/Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g1me2")
+
+[node name="AttackButton" type="Button" parent="BattleUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack enemy"
 
 [node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "ui")]
 script = ExtResource("1_qnk7v")
@@ -32,5 +55,9 @@ ui = NodePath("../BattleUI")
 [node name="Enemy" type="Node" parent="."]
 script = ExtResource("1_4mw4u")
 
-[node name="Player" type="Node" parent="."]
+[node name="Player" type="Node" parent="." node_paths=PackedStringArray("weapon")]
 script = ExtResource("2_xpv88")
+weapon = NodePath("Weapon")
+
+[node name="Weapon" type="Node" parent="Player"]
+script = ExtResource("5_udmq1")

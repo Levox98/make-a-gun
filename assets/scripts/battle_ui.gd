@@ -1,9 +1,9 @@
 class_name BattleUI extends CanvasLayer
 
 
-@onready var player_hp_label: Label = $VBoxContainer/PlayerHealth
-@onready var enemy_hp_label: Label = $VBoxContainer/EnemyHealth
-@onready var attack_button: Button = $VBoxContainer/AttackButton
+@onready var player_hp_label: Label = %PlayerHealth
+@onready var enemy_hp_label: Label = %EnemyHealth
+@onready var attack_button: Button = %AttackButton
 
 
 var player: Player
@@ -28,5 +28,5 @@ func update_ui() -> void:
 
 
 func _on_attack_pressed() -> void:
-	battle_manager.player_turn()
+	battle_manager.player_attack()
 	update_ui()
