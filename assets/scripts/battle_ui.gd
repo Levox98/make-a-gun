@@ -30,3 +30,15 @@ func update_ui() -> void:
 func _on_attack_pressed() -> void:
 	battle_manager.player_attack()
 	update_ui()
+
+
+func _on_barrel_button_button_up() -> void:
+	player.weapon.add_part("barrel", randi_range(1, 10))
+
+
+func _on_grip_button_button_up() -> void:
+	player.weapon.add_part("grip", randi_range(0, 2))
+
+
+func _on_stock_button_button_up() -> void:
+	player.weapon.add_part("stock", randi_range(2, 5))

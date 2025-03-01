@@ -19,14 +19,16 @@ script = ExtResource("4_argb5")
 
 [node name="Control" type="Control" parent="BattleUI"]
 layout_mode = 3
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -46,6 +48,73 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Attack enemy"
 
+[node name="WeaponRollContainer" type="VBoxContainer" parent="BattleUI/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="BattleUI/Control/WeaponRollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="StockButton" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Roll Stock"
+
+[node name="GripButton" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Roll Grip"
+
+[node name="BarrelButton" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Roll Barrel"
+
+[node name="ClipButton" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Roll Clip"
+
+[node name="Button5" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button6" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button7" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button8" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button9" type="Button" parent="BattleUI/Control/WeaponRollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "ui")]
 script = ExtResource("1_qnk7v")
 player = NodePath("../Player")
@@ -61,3 +130,7 @@ weapon = NodePath("Weapon")
 
 [node name="Weapon" type="Node" parent="Player"]
 script = ExtResource("5_udmq1")
+
+[connection signal="button_up" from="BattleUI/Control/WeaponRollContainer/GridContainer/StockButton" to="BattleUI" method="_on_stock_button_button_up"]
+[connection signal="button_up" from="BattleUI/Control/WeaponRollContainer/GridContainer/GripButton" to="BattleUI" method="_on_grip_button_button_up"]
+[connection signal="button_up" from="BattleUI/Control/WeaponRollContainer/GridContainer/BarrelButton" to="BattleUI" method="_on_barrel_button_button_up"]
