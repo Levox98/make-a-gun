@@ -5,13 +5,15 @@ class_name Weapon extends Node
 @export var parts: Dictionary = {}
 
 
-func _ready() -> void:
-    add_part("barrel", randi_range(1, 10))
-    add_part("stock", randi_range(2, 5))
+func add_part(part: WeaponPart) -> void:
+    if part.part_type in parts:
+        print("Replacing existing", WeaponPart.get_part_type_string(part.part_type))
+    
+    parts[part.part_type] = part
 
 
-func add_part(part_name: String, effect) -> void:
-    parts[part_name] = effect
+func remove_part(part_type: WeaponPart.PartType) -> void:
+    parts.erase(part_type)
 
 
 func calculate_damage() -> int:
@@ -20,6 +22,10 @@ func calculate_damage() -> int:
     print(parts)
 
     for part in parts.values():
-        total_damage += part
+        
+        print(part)
+
+        if part.has_damage:
+            total_damage += part.damage
 
     return total_damage

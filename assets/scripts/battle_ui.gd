@@ -4,6 +4,7 @@ class_name BattleUI extends CanvasLayer
 @onready var player_hp_label: Label = %PlayerHealth
 @onready var enemy_hp_label: Label = %EnemyHealth
 @onready var attack_button: Button = %AttackButton
+@onready var weapon_data_label: Label = %WeaponDataLabel
 
 
 var player: Player
