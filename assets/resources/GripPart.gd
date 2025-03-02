@@ -6,6 +6,7 @@ class_name GripPart extends WeaponPart
 
 func _init() -> void:
     has_damage = true
+    part_type = WeaponPart.PartType.GRIP
 
 
 func initialise(dmg: int) -> void:

@@ -7,6 +7,7 @@ class_name BarrelPart extends WeaponPart
 
 func _init() -> void:
     has_damage = true
+    part_type = WeaponPart.PartType.BARREL
 
 
 func initialise(lng: float, dmg_mult: float, dmg: int = randi_range(2, 10)) -> void:

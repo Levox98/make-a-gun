@@ -34,12 +34,17 @@ func _on_attack_pressed() -> void:
 
 
 func _on_barrel_button_button_up() -> void:
-	player.weapon.add_part("barrel", randi_range(1, 10))
+	var barrel = BarrelPart.new()
+	barrel.initialise(0.0, randf_range(1.0, 1.5), randi_range(2, 10))
+	player.weapon.add_part(barrel)
 
 
 func _on_grip_button_button_up() -> void:
-	player.weapon.add_part("grip", randi_range(0, 2))
+	var grip = GripPart.new()
+	grip.initialise(randi_range(2, 5))
+	player.weapon.add_part(grip)
 
 
 func _on_stock_button_button_up() -> void:
-	player.weapon.add_part("stock", randi_range(2, 5))
+	var stock = StockPart.new()
+	player.weapon.add_part(stock)

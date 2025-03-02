@@ -19,5 +19,5 @@ const PART_TYPE_NAMES = {
 }
 
 
-static func get_part_type_string(type: PartType) -> String:
-    return PART_TYPE_NAMES[type]
+static func get_part_type_string(type: WeaponPart) -> String:
+    return PART_TYPE_NAMES[type.part_type]
