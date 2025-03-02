@@ -7,7 +7,7 @@ class_name Weapon extends Node
 
 func add_part(part: WeaponPart) -> void:
     if part.part_type in parts:
-        print("Replacing existing ", WeaponPart.get_part_type_string(part))
+        print("Replacing existing ", WeaponPart.get_part_type_string(part.part_type))
     
     parts[part.part_type] = part
 

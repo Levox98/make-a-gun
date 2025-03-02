@@ -11,6 +11,11 @@ var player: Player
 var enemy: Enemy
 var battle_manager: BattleManager
 
+var latest_weapon_change_text: String = "":
+	set(new_value):
+		latest_weapon_change_text = new_value
+		update_ui()
+
 
 func _ready() -> void:
 	# TODO: replace this shitty code, because it depends on placement order of the nodes in scene tree
@@ -26,6 +31,7 @@ func _ready() -> void:
 func update_ui() -> void:
 	player_hp_label.text = "Player HP: " + str(player.health)
 	enemy_hp_label.text = "Enemy HP: " + str(enemy.health)
+	weapon_data_label.text = latest_weapon_change_text
 
 
 func _on_attack_pressed() -> void:
@@ -37,14 +43,17 @@ func _on_barrel_button_button_up() -> void:
 	var barrel = BarrelPart.new()
 	barrel.initialise(0.0, randf_range(1.0, 1.5), randi_range(2, 10))
 	player.weapon.add_part(barrel)
+	latest_weapon_change_text = str(barrel)
 
 
 func _on_grip_button_button_up() -> void:
 	var grip = GripPart.new()
 	grip.initialise(randi_range(2, 5))
 	player.weapon.add_part(grip)
+	latest_weapon_change_text = str(grip)
 
 
 func _on_stock_button_button_up() -> void:
 	var stock = StockPart.new()
 	player.weapon.add_part(stock)
+	latest_weapon_change_text = str(stock)

@@ -6,11 +6,16 @@ class_name BarrelPart extends WeaponPart
 
 
 func _init() -> void:
+    name = "Barrel"
     has_damage = true
     part_type = WeaponPart.PartType.BARREL
 
 
 func initialise(lng: float, dmg_mult: float, dmg: int = randi_range(2, 10)) -> void:
     length = lng
-    damage_multiplier = dmg_mult
+    damage_multiplier = snappedf(dmg_mult, 0.01)
     damage = dmg
+
+
+func _get_custom_description() -> String:
+    return "Length: %d, Dmg mult: %.2f, Dmg: %d" % [length, damage_multiplier, damage]
