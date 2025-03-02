@@ -8,6 +8,7 @@ class_name ScopePart extends WeaponPart
 func _init() -> void:
     name = "Scope"
     part_type = WeaponPart.PartType.SCOPE
+    size = Vector2(1, 1)
 
 
 func initialise(zoom_lvl: float, aim_spd_bns: float) -> void:

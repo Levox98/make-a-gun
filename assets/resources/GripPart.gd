@@ -8,6 +8,7 @@ func _init() -> void:
     name = "Grip"
     has_damage = true
     part_type = WeaponPart.PartType.GRIP
+    size = Vector2(2, 1)
 
 
 func initialise(dmg: int) -> void:

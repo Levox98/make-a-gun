@@ -9,6 +9,7 @@ func _init() -> void:
     name = "Barrel"
     has_damage = true
     part_type = WeaponPart.PartType.BARREL
+    size = Vector2(1, 3)
 
 
 func initialise(lng: float, dmg_mult: float, dmg: int = randi_range(2, 10)) -> void:

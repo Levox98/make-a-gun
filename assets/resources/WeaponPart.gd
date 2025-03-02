@@ -5,6 +5,8 @@ class_name WeaponPart extends Resource
 @export var part_type: PartType
 @export var weight: float = 0.0
 
+@export var size: Vector2 = Vector2(1, 1)  # Width, Height in grid cells
+@export var icon: Texture2D  # Texture for UI display
 
 var has_damage: bool = false
 
