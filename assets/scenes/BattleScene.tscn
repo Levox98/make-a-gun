@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://pxb6wju33k4j"]
 
-[ext_resource type="Script" path="res://assets/scripts/enemy.gd" id="1_4mw4u"]
-[ext_resource type="Script" path="res://assets/scripts/battle_manager.gd" id="1_qnk7v"]
-[ext_resource type="Script" path="res://assets/scripts/player.gd" id="2_xpv88"]
-[ext_resource type="Script" path="res://assets/scripts/battle_ui.gd" id="4_argb5"]
-[ext_resource type="Script" path="res://assets/scripts/weapon.gd" id="5_udmq1"]
+[ext_resource type="Script" uid="uid://bnv07qbli62hd" path="res://assets/scripts/enemy.gd" id="1_4mw4u"]
+[ext_resource type="Script" uid="uid://cgnyd1upiedf6" path="res://assets/scripts/battle_manager.gd" id="1_qnk7v"]
+[ext_resource type="Script" uid="uid://cign5af7nm3o0" path="res://assets/scripts/player.gd" id="2_xpv88"]
+[ext_resource type="Script" uid="uid://bi6vv61027ils" path="res://assets/scripts/battle_ui.gd" id="4_argb5"]
+[ext_resource type="Script" uid="uid://c4kdl1iy1rp6" path="res://assets/scripts/weapon.gd" id="5_udmq1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g66lf"]
 content_margin_bottom = 50.0
